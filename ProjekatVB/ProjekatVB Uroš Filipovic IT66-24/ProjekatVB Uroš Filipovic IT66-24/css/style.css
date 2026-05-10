@@ -1,0 +1,403 @@
+:root {
+    --primarna: #002147;
+    --akcentna: #3498db;
+    --pozadina: #f4f7f6;
+    --bela: #ffffff;
+    --senka: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: var(--pozadina);
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- NAVIGACIJA (Logo strogo levo, 100% visina) --- */
+nav {
+    background: var(--primarna);
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 100%;
+    width: auto;
+    display: block;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: var(--akcentna);
+}
+
+/* --- HERO SEKCIJA --- */
+.hero {
+    background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 33, 71, 0.85)), 
+                url('../images/mehanicki radovi.jpg') center/cover;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    margin-bottom: 40px;
+}
+
+/* --- KONTENJERI --- */
+.container-text {
+    max-width: 1100px;
+    margin: 0 auto 50px auto;
+    padding: 40px;
+    background: var(--bela);
+    border-radius: 12px;
+    box-shadow: var(--senka);
+}
+
+.o-nama h2 {
+    color: var(--primarna);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--akcentna);
+    padding-left: 15px;
+}
+
+.o-nama h3 {
+    color: var(--primarna);
+    margin: 22px 0 10px;
+    font-size: 1.05rem;
+}
+
+.o-nama p {
+    color: #4a4a4a;
+    line-height: 1.75;
+    margin-bottom: 12px;
+}
+
+.o-nama ul.standardi {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.o-nama ul.standardi li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #eef5fc;
+    border-left: 3px solid var(--akcentna);
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: var(--primarna);
+    font-weight: 500;
+}
+
+/* --- USLUGE KARTICE (Ista visina i širina) --- */
+.usluge-kontejner {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    padding: 20px 5%;
+    flex-wrap: wrap;
+}
+
+.kartica {
+    flex: 1;
+    min-width: 320px;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--senka);
+    display: flex;
+    flex-direction: column;
+}
+
+.kartica h3 {
+    padding: 15px;
+    text-align: center;
+    background: var(--primarna);
+    color: white;
+    font-size: 1.3rem;
+}
+
+.image-wrapper {
+    position: relative;
+    height: 300px;
+    cursor: pointer;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 33, 71, 0.92);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+    opacity: 0;
+    transition: 0.4s ease;
+}
+
+.image-wrapper:hover .overlay { opacity: 1; }
+
+/* --- DUGME ZA PRIKAZ RADOVA --- */
+.btn-radovi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px 20px;
+    background: linear-gradient(135deg, #3498db, #2176ae);
+    color: white;
+    border: none;
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    transition: background 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+.btn-radovi::before {
+    content: '🔧';
+    font-size: 1rem;
+}
+.btn-radovi .strelica {
+    margin-left: auto;
+    font-size: 0.8rem;
+    transition: transform 0.35s ease;
+    display: inline-block;
+}
+.btn-radovi:hover {
+    background: linear-gradient(135deg, #2980b9, #1a5f8a);
+    box-shadow: 0 4px 16px rgba(52,152,219,0.35);
+}
+.btn-radovi.aktivan {
+    background: linear-gradient(135deg, #002147, #003366);
+    box-shadow: 0 4px 16px rgba(0,33,71,0.3);
+}
+.btn-radovi.aktivan::before { content: '✖'; }
+.btn-radovi.aktivan .strelica { transform: rotate(180deg); }
+
+/* --- PANEL SA LISTOM RADOVA (sklopivi) --- */
+.radovi-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    background: #f0f6fc;
+}
+.radovi-panel.otvoren {
+    max-height: 700px;
+}
+.radovi-panel ul {
+    list-style: none;
+    padding: 10px 14px 14px;
+    margin: 0;
+    border-top: 3px solid #3498db;
+}
+.radovi-panel ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #3498db;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.radovi-panel ul li:hover {
+    transform: translateX(4px);
+    box-shadow: 0 3px 12px rgba(52,152,219,0.18);
+}
+.radovi-panel ul li .ikona {
+    color: white;
+    background: #3498db;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 900;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.radovi-panel ul li .naziv {
+    font-weight: 700;
+    color: #002147;
+    font-size: 0.92rem;
+}
+.radovi-panel ul li .opis {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 3px;
+    line-height: 1.4;
+}
+.radovi-panel .ucitavanje {
+    padding: 24px;
+    text-align: center;
+    color: #3498db;
+    font-style: italic;
+    border-top: 3px solid #3498db;
+    font-size: 0.9rem;
+}
+
+/* --- PROFESIONALNA FORMA (Max 600px) --- */
+.container-form {
+    max-width: 600px;
+    margin: 0 auto 60px auto;
+    padding: 40px;
+    background: var(--bela);
+    border-radius: 12px;
+    box-shadow: var(--senka);
+}
+
+.kontakt-sekcija h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--primarna);
+}
+
+.input-group { margin-bottom: 20px; }
+.input-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #eef2f6;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group textarea:focus {
+    outline: none;
+    border-color: var(--akcentna);
+    background: #fcfdfe;
+}
+
+.posalji {
+    width: 100%;
+    padding: 15px;
+    background: var(--primarna);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.posalji:hover { background: var(--akcentna); transform: translateY(-2px); }
+
+/* --- RESPONZIVNOST --- */
+.checkbtn { display: none; color: white; font-size: 30px; cursor: pointer; }
+#check { display: none; }
+
+@media (max-width: 858px) {
+    .checkbtn { display: block; }
+    nav ul {
+        position: fixed; width: 100%; height: 100vh; background: var(--primarna);
+        top: 80px; left: -100%; text-align: center; flex-direction: column; transition: 0.5s;
+    }
+    nav ul li { margin: 20px 0; }
+    #check:checked ~ ul { left: 0; }
+    .container-form, .container-text { margin: 15px; padding: 25px; }
+}
+
+
+/* --- ANIMACIJA (Popravljeno) --- */
+.animacija {
+    width: 100%;
+    overflow: hidden;
+    height: 110px;
+    position: relative;
+    margin-top: 28px;
+    background: #eef5fc; /* Svetlija pozadina da auto dođe do izražaja */
+    border-radius: 8px;
+    border: 1px solid #b8cfe0;
+}
+
+/* Asfalt traka */
+.animacija::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 25px; /* Smanjena visina asfalta */
+    background: #333; /* Tamnija siva za bolji kontrast */
+    border-radius: 0 0 8px 8px;
+}
+
+/* Auto */
+.pomeranje-kola {
+    position: absolute;
+    bottom: 12px; /* Spušten malo niže na asfalt */
+    left: -150px;
+    z-index: 2;
+    animation: vozi 6s linear infinite; /* Malo ubrzano na 6s */
+}
+
+.pomeranje-kola img {
+    height: 65px; /* Malo povećana slika */
+    width: auto;
+    display: block;
+}
+
+/* Animacija koja koristi 100% širine roditelja */
+@keyframes vozi {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(1100px + 150px)); } 
+}
+
+/* Za mobilne telefone smanji putanju */
+@media (max-width: 858px) {
+    @keyframes vozi {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(100% + 150px)); }
+    }
+}
+
+footer { background: #222; color: white; text-align: center; padding: 25px; }
