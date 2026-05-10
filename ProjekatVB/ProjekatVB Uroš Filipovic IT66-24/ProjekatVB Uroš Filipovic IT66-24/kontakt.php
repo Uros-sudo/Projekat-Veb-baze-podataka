@@ -22,8 +22,6 @@ $broj_poseta = brojacPoseta();
             gap: 6px;
         }
         .info-bar span { display: flex; align-items: center; gap: 6px; }
-
-        /* Poruke o statusu forme */
         #formStatus p {
             margin-top: 15px;
             font-weight: bold;
@@ -97,7 +95,6 @@ $broj_poseta = brojacPoseta();
 
     <script src="js/script.js"></script>
     <script>
-        // Realno vreme
         function updateVreme() {
             const now = new Date();
             const dani = ['Nedelja','Ponedeljak','Utorak','Sreda','Četvrtak','Petak','Subota'];
@@ -109,15 +106,13 @@ $broj_poseta = brojacPoseta();
         }
         updateVreme();
         setInterval(updateVreme, 1000);
-
-        // Override JS forme - šalje u PHP/bazu umesto samo JS poruke
         document.addEventListener('DOMContentLoaded', () => {
             const forma = document.getElementById('contactForm');
             if (!forma) return;
 
             forma.addEventListener('submit', function(e) {
                 e.preventDefault();
-                e.stopImmediatePropagation(); // Sprečava script.js da se izvršava
+                e.stopImmediatePropagation(); 
 
                 const dugme = forma.querySelector('.posalji');
                 const status = document.getElementById('formStatus');
@@ -155,7 +150,7 @@ $broj_poseta = brojacPoseta();
                     dugme.disabled = false;
                     dugme.textContent = 'Pošalji poruku';
                 });
-            }, true); // true = capture phase, izvršava se pre script.js
+            }, true); 
         });
     </script>
 </body>
