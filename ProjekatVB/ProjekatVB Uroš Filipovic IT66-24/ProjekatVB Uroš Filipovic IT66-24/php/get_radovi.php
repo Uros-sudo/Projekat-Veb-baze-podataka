@@ -1,9 +1,4 @@
 <?php
-// ============================================
-// php/get_radovi.php
-// Vraca JSON sa radovima za datu kategoriju
-// Poziv: php/get_radovi.php?slug=mehanika
-// ============================================
 header('Content-Type: application/json; charset=utf-8');
 require_once 'config.php';
 
