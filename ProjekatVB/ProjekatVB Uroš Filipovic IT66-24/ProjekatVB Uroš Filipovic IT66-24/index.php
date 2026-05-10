@@ -23,8 +23,6 @@ $broj_poseta = brojacPoseta();
             gap: 6px;
         }
         .info-bar span { display: flex; align-items: center; gap: 6px; }
-
-        /* ---- NASLOV SEKCIJE AKCIJA ---- */
         .akcije-naslov {
             text-align: center;
             padding: 40px 20px 10px;
@@ -48,8 +46,6 @@ $broj_poseta = brojacPoseta();
             border-radius: 2px;
             margin: 12px auto 0;
         }
-
-        /* ---- SLAJDER WRAPPER ---- */
         .akcije-wrapper {
             background: #f0f6fc;
             padding: 28px 0 48px;
@@ -63,15 +59,11 @@ $broj_poseta = brojacPoseta();
             margin: 0 auto;
             padding: 0 60px;
         }
-
-        /* Traka slajdova */
         .slajder-traka {
             display: flex;
             transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
             gap: 24px;
         }
-
-        /* ---- KARTICA AKCIJE ---- */
         .akcija-kartica {
             min-width: calc(33.333% - 16px);
             background: white;
@@ -88,8 +80,6 @@ $broj_poseta = brojacPoseta();
             transform: translateY(-5px);
             box-shadow: 0 10px 32px rgba(52,152,219,0.18);
         }
-
-        /* Bedž "AKCIJA" */
         .akcija-bedz {
             position: absolute;
             top: 14px;
@@ -107,8 +97,6 @@ $broj_poseta = brojacPoseta();
         }
         .akcija-bedz.sezonski { background: linear-gradient(135deg, #f39c12, #e67e22); }
         .akcija-bedz.novo     { background: linear-gradient(135deg, #27ae60, #1e8449); }
-
-        /* Gornji deo kartice — ikona + boja */
         .akcija-vrh {
             padding: 32px 24px 20px;
             display: flex;
@@ -147,8 +135,6 @@ $broj_poseta = brojacPoseta();
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
-
-        /* Telo kartice */
         .akcija-telo {
             padding: 18px 24px 20px;
             flex: 1;
@@ -159,8 +145,6 @@ $broj_poseta = brojacPoseta();
             line-height: 1.6;
             margin-bottom: 16px;
         }
-
-        /* Cena/popust */
         .akcija-cena {
             display: flex;
             align-items: baseline;
@@ -185,8 +169,6 @@ $broj_poseta = brojacPoseta();
             padding: 3px 9px;
             border-radius: 12px;
         }
-
-        /* Donji deo — period trajanja */
         .akcija-footer {
             padding: 12px 24px 18px;
             display: flex;
@@ -197,8 +179,6 @@ $broj_poseta = brojacPoseta();
             border-top: 1px solid #f0f6fc;
         }
         .akcija-footer strong { color: #002147; }
-
-        /* Dugme za zakazivanje */
         .btn-zakazi {
             display: block;
             margin: 0 24px 20px;
@@ -217,8 +197,6 @@ $broj_poseta = brojacPoseta();
             background: linear-gradient(135deg, #3498db, #2176ae);
             transform: translateY(-1px);
         }
-
-        /* ---- STRELICE ---- */
         .slajder-strelica {
             position: absolute;
             top: 50%;
@@ -250,8 +228,6 @@ $broj_poseta = brojacPoseta();
             cursor: not-allowed;
             pointer-events: none;
         }
-
-        /* ---- TAČKICE (indikatori) ---- */
         .slajder-tacke {
             display: flex;
             justify-content: center;
@@ -273,8 +249,6 @@ $broj_poseta = brojacPoseta();
             width: 24px;
             border-radius: 4px;
         }
-
-        /* ---- RESPONSIVE ---- */
         @media (max-width: 900px) {
             .akcija-kartica { min-width: calc(50% - 12px); }
         }
@@ -285,7 +259,6 @@ $broj_poseta = brojacPoseta();
     </style>
 </head>
 <body>
-
     <div class="info-bar">
         <span> <span id="realni-datum">...</span> &nbsp;|&nbsp;  <span id="realno-vreme">...</span></span>
         <span> Ukupno poseta: <strong><?= number_format($broj_poseta) ?></strong></span>
@@ -310,8 +283,6 @@ $broj_poseta = brojacPoseta();
             <p>Vaš pouzdan partner za održavanje i popravku vozila.</p>
         </div>
     </header>
-
-    <!-- O NAMA -->
     <main class="container-text">
         <section class="o-nama" id="o-nama-sekcija">
             <h2>O Nama</h2>
@@ -336,8 +307,6 @@ $broj_poseta = brojacPoseta();
             </div>
         </section>
     </main>
-
-    <!-- SLAJDER SA AKCIJAMA -->
     <div class="akcije-naslov">
         <h2>Aktuelne akcije</h2>
         <p>Promotivne ponude ograničenog trajanja — zakažite termin na vreme.</p>
@@ -352,8 +321,6 @@ $broj_poseta = brojacPoseta();
 
             <div style="overflow:hidden; border-radius: 14px;">
                 <div class="slajder-traka" id="slajder-traka">
-
-                    <!-- KARTICA 1 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz">AKCIJA</span>
                         <div class="akcija-vrh">
@@ -376,8 +343,6 @@ $broj_poseta = brojacPoseta();
                         </div>
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
-
-                    <!-- KARTICA 2 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz sezonski">SEZONSKI</span>
                         <div class="akcija-vrh">
@@ -400,8 +365,6 @@ $broj_poseta = brojacPoseta();
                         </div>
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
-
-                    <!-- KARTICA 3 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz" style="background:linear-gradient(135deg,#8e44ad,#6c3483);">PREMIUM</span>
                         <div class="akcija-vrh">
@@ -424,8 +387,6 @@ $broj_poseta = brojacPoseta();
                         </div>
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
-
-                    <!-- KARTICA 4 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz novo">NOVO</span>
                         <div class="akcija-vrh">
@@ -448,8 +409,6 @@ $broj_poseta = brojacPoseta();
                         </div>
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
-
-                    <!-- KARTICA 5 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz">AKCIJA</span>
                         <div class="akcija-vrh">
@@ -471,8 +430,6 @@ $broj_poseta = brojacPoseta();
                         </div>
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
-
-                    <!-- KARTICA 6 -->
                     <div class="akcija-kartica">
                         <span class="akcija-bedz sezonski">PAKET</span>
                         <div class="akcija-vrh">
@@ -496,13 +453,13 @@ $broj_poseta = brojacPoseta();
                         <a href="kontakt.php" class="btn-zakazi">Zakaži termin →</a>
                     </div>
 
-                </div><!-- /slajder-traka -->
+                </div>
             </div>
 
             <div class="slajder-tacke" id="slajder-tacke"></div>
 
-        </div><!-- /slajder-outer -->
-    </div><!-- /akcije-wrapper -->
+        </div>
+    </div>
 
     <footer>
         <p>&copy; <?= date('Y') ?> Autoservis Filipović. Sva prava zadržana.</p>
@@ -510,7 +467,6 @@ $broj_poseta = brojacPoseta();
 
     <script src="js/script.js"></script>
     <script>
-        // ---- REALNO VREME ----
         function updateVreme() {
             const now = new Date();
             const dani   = ['Nedelja','Ponedeljak','Utorak','Sreda','Četvrtak','Petak','Subota'];
@@ -522,16 +478,12 @@ $broj_poseta = brojacPoseta();
         }
         updateVreme();
         setInterval(updateVreme, 1000);
-
-        // ---- SLAJDER SA AKCIJAMA ----
         (function() {
             const traka      = document.getElementById('slajder-traka');
             const btnLevo    = document.getElementById('btn-levo');
             const btnDesno   = document.getElementById('btn-desno');
             const tackeWrap  = document.getElementById('slajder-tacke');
             const kartice    = traka.querySelectorAll('.akcija-kartica');
-
-            // Koliko kartica se vidi odjednom (responsive)
             function vidljive() {
                 if (window.innerWidth <= 600) return 1;
                 if (window.innerWidth <= 900) return 2;
@@ -544,8 +496,6 @@ $broj_poseta = brojacPoseta();
             function ukupnoSlajdova() {
                 return kartice.length - vidljive() + 1;
             }
-
-            // Kreiraj tačkice
             function napraviTacke() {
                 tackeWrap.innerHTML = '';
                 const n = ukupnoSlajdova();
@@ -557,23 +507,15 @@ $broj_poseta = brojacPoseta();
                     tackeWrap.appendChild(t);
                 }
             }
-
-            // Pomeri traku
             function idi(n) {
                 const maks = ukupnoSlajdova() - 1;
                 trenutni = Math.max(0, Math.min(n, maks));
-
-                // Izračunaj širinu kartice + gap
                 const kartica    = kartice[0];
                 const sirina     = kartica.offsetWidth + 24; // 24 = gap
                 traka.style.transform = `translateX(-${trenutni * sirina}px)`;
-
-                // Ažuriraj tačkice
                 tackeWrap.querySelectorAll('.tacka').forEach(function(t, i) {
                     t.classList.toggle('aktivna', i === trenutni);
                 });
-
-                // Strelice
                 btnLevo.disabled  = trenutni === 0;
                 btnDesno.disabled = trenutni >= maks;
             }
@@ -585,24 +527,17 @@ $broj_poseta = brojacPoseta();
                     idi(sledeci);
                 }, 4500);
             }
-
             btnLevo.addEventListener('click',  function() { idi(trenutni - 1); resetAuto(); });
             btnDesno.addEventListener('click', function() { idi(trenutni + 1); resetAuto(); });
-
-            // Touch/swipe podrška
             let touchX = 0;
             traka.addEventListener('touchstart', function(e) { touchX = e.touches[0].clientX; }, {passive:true});
             traka.addEventListener('touchend',   function(e) {
                 const diff = touchX - e.changedTouches[0].clientX;
                 if (Math.abs(diff) > 40) { idi(diff > 0 ? trenutni+1 : trenutni-1); resetAuto(); }
             }, {passive:true});
-
-            // Inicijalizacija
             napraviTacke();
             idi(0);
             resetAuto();
-
-            // Re-init na resize
             let rezajmTimer;
             window.addEventListener('resize', function() {
                 clearTimeout(rezajmTimer);
