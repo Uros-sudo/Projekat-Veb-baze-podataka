@@ -5,7 +5,6 @@ function transformisiTekst(txt) {
 }
 
 function validirajFormu(ime, mail) {
-    // Kontrolna struktura (IF)
     if (ime.length > 3 && mail.includes("@")) {
         return true;
     }
@@ -13,8 +12,6 @@ function validirajFormu(ime, mail) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // Generisanje liste na početnoj stranici
     const oNamaSekcija = document.getElementById('o-nama-sekcija');
     if (oNamaSekcija) {
         const h3 = document.createElement('h3');
