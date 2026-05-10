@@ -50,8 +50,6 @@ $broj_poseta = brojacPoseta();
     </div>
 
     <section class="usluge-kontejner">
-
-        <!-- KARTICA 1: Mehaničarski radovi -->
         <div class="kartica">
             <h3>Mehaničarski radovi</h3>
             <div class="image-wrapper">
@@ -67,8 +65,6 @@ $broj_poseta = brojacPoseta();
                 <div class="ucitavanje">Učitavanje...</div>
             </div>
         </div>
-
-        <!-- KARTICA 2: Limarski radovi -->
         <div class="kartica">
             <h3>Limarski radovi</h3>
             <div class="image-wrapper">
@@ -84,8 +80,6 @@ $broj_poseta = brojacPoseta();
                 <div class="ucitavanje">Učitavanje...</div>
             </div>
         </div>
-
-        <!-- KARTICA 3: Farbarski radovi -->
         <div class="kartica">
             <h3>Farbarski radovi</h3>
             <div class="image-wrapper">
@@ -101,16 +95,13 @@ $broj_poseta = brojacPoseta();
                 <div class="ucitavanje">Učitavanje...</div>
             </div>
         </div>
-
     </section>
-
     <footer>
         <p>&copy; <?= date('Y') ?> Autoservis Filipović. Sva prava zadržana.</p>
     </footer>
 
     <script src="js/script.js"></script>
     <script>
-        // Realno vreme
         function updateVreme() {
             const now = new Date();
             const dani = ['Nedelja','Ponedeljak','Utorak','Sreda','Četvrtak','Petak','Subota'];
@@ -122,11 +113,7 @@ $broj_poseta = brojacPoseta();
         }
         updateVreme();
         setInterval(updateVreme, 1000);
-
-        // ============================================
-        // LOGIKA ZA PRIKAZ RADOVA IZ BAZE
-        // ============================================
-        const ucitani = {}; // Kes vec ucitanih radova
+        const ucitani = {}; 
 
         document.querySelectorAll('.btn-radovi').forEach(function(dugme) {
             dugme.addEventListener('click', function() {
@@ -135,27 +122,19 @@ $broj_poseta = brojacPoseta();
                 const otvoren = this.dataset.otvoren === '1';
 
                 if (otvoren) {
-                    // --- ZATVORI ---
                     panel.classList.remove('otvoren');
                     this.dataset.otvoren = '0';
                     this.classList.remove('aktivan');
                     this.innerHTML = 'Pogledaj spisak radova <span class="strelica">&#9660;</span>';
                     return;
                 }
-
-                // --- OTVORI ---
                 panel.classList.add('otvoren');
                 this.dataset.otvoren = '1';
                 this.classList.add('aktivan');
                 this.innerHTML = 'Sakrij spisak radova <span class="strelica">&#9660;</span>';
 
-                // Ako su radovi vec ucitani, samo prikazi
                 if (ucitani[slug]) return;
-
-                // Prikazi spinner dok ucitava
                 panel.innerHTML = '<div class="ucitavanje">⏳ Učitavanje radova...</div>';
-
-                // Dohvati radove iz baze (AJAX)
                 fetch('php/get_radovi.php?slug=' + slug)
                     .then(function(r) { return r.json(); })
                     .then(function(data) {
@@ -173,7 +152,7 @@ $broj_poseta = brojacPoseta();
                             });
                             html += '</ul>';
                             panel.innerHTML = html;
-                            ucitani[slug] = true; // Postavi flag tek nakon uspesnog ucitavanja
+                            ucitani[slug] = true; 
                         } else {
                             panel.innerHTML = '<div class="ucitavanje">Nema dostupnih radova.</div>';
                         }
