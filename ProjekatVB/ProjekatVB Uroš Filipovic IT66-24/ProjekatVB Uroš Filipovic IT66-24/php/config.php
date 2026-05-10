@@ -1,12 +1,7 @@
 <?php
-// ============================================
-// KONFIGURACIJA BAZE PODATAKA
-// Autoservis Filipović
-// ============================================
-
 define('DB_HOST', 'localhost');
-define('DB_USER', 'root');      // Promenite prema vašim podešavanjima
-define('DB_PASS', '');          // Promenite ako imate lozinku
+define('DB_USER', 'root');      
+define('DB_PASS', '');          
 define('DB_NAME', 'autoservis_filipovic');
 
 function getDB() {
@@ -14,15 +9,12 @@ function getDB() {
     if ($conn === null) {
         $conn = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         if ($conn->connect_error) {
-            // Vraća null ako baza nije dostupna (sajt i dalje radi)
             return null;
         }
         $conn->set_charset('utf8mb4');
     }
     return $conn;
 }
-
-// Brojač poseta - broji jedinstvene IP po satu
 function brojacPoseta() {
     $conn = getDB();
     if (!$conn) return 0;
