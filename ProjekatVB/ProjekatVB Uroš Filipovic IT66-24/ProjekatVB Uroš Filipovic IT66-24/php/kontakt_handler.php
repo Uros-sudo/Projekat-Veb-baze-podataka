@@ -1,8 +1,4 @@
 <?php
-// ============================================
-// HANDLER ZA KONTAKT FORMU
-// Prima POST zahtev i čuva u bazu
-// ============================================
 header('Content-Type: application/json; charset=utf-8');
 require_once 'config.php';
 
@@ -15,8 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $ime   = trim($_POST['ime'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $poruka = trim($_POST['poruka'] ?? '');
-
-// Validacija
 $greske = [];
 if (strlen($ime) < 3)                        $greske[] = 'Ime mora imati najmanje 3 karaktera.';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $greske[] = 'Unesite validnu email adresu.';
@@ -29,7 +23,6 @@ if (!empty($greske)) {
 
 $conn = getDB();
 if (!$conn) {
-    // Ako baza nije dostupna, vrati uspeh (forma radi i bez baze)
     echo json_encode(['success' => true, 'poruka' => "Hvala Vam, $ime. Uspešno ste poslali poruku!"]);
     exit;
 }
