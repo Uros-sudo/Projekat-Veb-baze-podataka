@@ -12,14 +12,11 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Arial, sans-serif;
 }
-
 body {
     background-color: var(--pozadina);
     color: #333;
     line-height: 1.6;
 }
-
-/* --- NAVIGACIJA (Logo strogo levo, 100% visina) --- */
 nav {
     background: var(--primarna);
     height: 80px;
@@ -31,24 +28,20 @@ nav {
     top: 0;
     z-index: 1000;
 }
-
 .logo {
     height: 80px;
     display: flex;
     align-items: center;
 }
-
 .logo img {
     height: 100%;
     width: auto;
     display: block;
 }
-
 nav ul {
     display: flex;
     list-style: none;
 }
-
 nav ul li a {
     color: white;
     text-decoration: none;
@@ -56,12 +49,9 @@ nav ul li a {
     padding: 10px 15px;
     transition: 0.3s;
 }
-
 nav ul li a:hover, nav ul li a.active {
     color: var(--akcentna);
 }
-
-/* --- HERO SEKCIJA --- */
 .hero {
     background: linear-gradient(rgba(0, 33, 71, 0.85), rgba(0, 33, 71, 0.85)), 
                 url('../images/mehanicki radovi.jpg') center/cover;
@@ -70,8 +60,6 @@ nav ul li a:hover, nav ul li a.active {
     padding: 80px 20px;
     margin-bottom: 40px;
 }
-
-/* --- KONTENJERI --- */
 .container-text {
     max-width: 1100px;
     margin: 0 auto 50px auto;
@@ -80,26 +68,22 @@ nav ul li a:hover, nav ul li a.active {
     border-radius: 12px;
     box-shadow: var(--senka);
 }
-
 .o-nama h2 {
     color: var(--primarna);
     margin-bottom: 15px;
     border-left: 5px solid var(--akcentna);
     padding-left: 15px;
 }
-
 .o-nama h3 {
     color: var(--primarna);
     margin: 22px 0 10px;
     font-size: 1.05rem;
 }
-
 .o-nama p {
     color: #4a4a4a;
     line-height: 1.75;
     margin-bottom: 12px;
 }
-
 .o-nama ul.standardi {
     list-style: none;
     padding: 0;
@@ -108,7 +92,6 @@ nav ul li a:hover, nav ul li a.active {
     gap: 10px;
     margin-top: 8px;
 }
-
 .o-nama ul.standardi li {
     display: flex;
     align-items: center;
@@ -121,8 +104,6 @@ nav ul li a:hover, nav ul li a.active {
     color: var(--primarna);
     font-weight: 500;
 }
-
-/* --- USLUGE KARTICE (Ista visina i širina) --- */
 .usluge-kontejner {
     display: flex;
     justify-content: center;
@@ -131,7 +112,6 @@ nav ul li a:hover, nav ul li a.active {
     padding: 20px 5%;
     flex-wrap: wrap;
 }
-
 .kartica {
     flex: 1;
     min-width: 320px;
@@ -142,7 +122,6 @@ nav ul li a:hover, nav ul li a.active {
     display: flex;
     flex-direction: column;
 }
-
 .kartica h3 {
     padding: 15px;
     text-align: center;
@@ -150,19 +129,16 @@ nav ul li a:hover, nav ul li a.active {
     color: white;
     font-size: 1.3rem;
 }
-
 .image-wrapper {
     position: relative;
     height: 300px;
     cursor: pointer;
 }
-
 .image-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-
 .overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
@@ -176,10 +152,7 @@ nav ul li a:hover, nav ul li a.active {
     opacity: 0;
     transition: 0.4s ease;
 }
-
 .image-wrapper:hover .overlay { opacity: 1; }
-
-/* --- DUGME ZA PRIKAZ RADOVA --- */
 .btn-radovi {
     display: flex;
     align-items: center;
@@ -218,8 +191,6 @@ nav ul li a:hover, nav ul li a.active {
 }
 .btn-radovi.aktivan::before { content: '✖'; }
 .btn-radovi.aktivan .strelica { transform: rotate(180deg); }
-
-/* --- PANEL SA LISTOM RADOVA (sklopivi) --- */
 .radovi-panel {
     max-height: 0;
     overflow: hidden;
@@ -284,8 +255,6 @@ nav ul li a:hover, nav ul li a.active {
     border-top: 3px solid #3498db;
     font-size: 0.9rem;
 }
-
-/* --- PROFESIONALNA FORMA (Max 600px) --- */
 .container-form {
     max-width: 600px;
     margin: 0 auto 60px auto;
@@ -294,13 +263,11 @@ nav ul li a:hover, nav ul li a.active {
     border-radius: 12px;
     box-shadow: var(--senka);
 }
-
 .kontakt-sekcija h2 {
     text-align: center;
     margin-bottom: 25px;
     color: var(--primarna);
 }
-
 .input-group { margin-bottom: 20px; }
 .input-group label { display: block; margin-bottom: 8px; font-weight: 600; }
 .input-group input, .input-group textarea {
@@ -311,13 +278,11 @@ nav ul li a:hover, nav ul li a.active {
     font-size: 16px;
     transition: 0.3s;
 }
-
 .input-group input:focus, .input-group textarea:focus {
     outline: none;
     border-color: var(--akcentna);
     background: #fcfdfe;
 }
-
 .posalji {
     width: 100%;
     padding: 15px;
@@ -330,13 +295,9 @@ nav ul li a:hover, nav ul li a.active {
     cursor: pointer;
     transition: 0.3s;
 }
-
 .posalji:hover { background: var(--akcentna); transform: translateY(-2px); }
-
-/* --- RESPONZIVNOST --- */
 .checkbtn { display: none; color: white; font-size: 30px; cursor: pointer; }
 #check { display: none; }
-
 @media (max-width: 858px) {
     .checkbtn { display: block; }
     nav ul {
@@ -347,52 +308,41 @@ nav ul li a:hover, nav ul li a.active {
     #check:checked ~ ul { left: 0; }
     .container-form, .container-text { margin: 15px; padding: 25px; }
 }
-
-
-/* --- ANIMACIJA (Popravljeno) --- */
 .animacija {
     width: 100%;
     overflow: hidden;
     height: 110px;
     position: relative;
     margin-top: 28px;
-    background: #eef5fc; /* Svetlija pozadina da auto dođe do izražaja */
+    background: #eef5fc;
     border-radius: 8px;
     border: 1px solid #b8cfe0;
 }
 
-/* Asfalt traka */
 .animacija::after {
     content: '';
     position: absolute;
     bottom: 0; left: 0; right: 0;
-    height: 25px; /* Smanjena visina asfalta */
-    background: #333; /* Tamnija siva za bolji kontrast */
+    height: 25px; 
+    background: #333; 
     border-radius: 0 0 8px 8px;
 }
-
-/* Auto */
 .pomeranje-kola {
     position: absolute;
-    bottom: 12px; /* Spušten malo niže na asfalt */
+    bottom: 12px; 
     left: -150px;
     z-index: 2;
-    animation: vozi 6s linear infinite; /* Malo ubrzano na 6s */
+    animation: vozi 6s linear infinite; 
 }
-
 .pomeranje-kola img {
-    height: 65px; /* Malo povećana slika */
+    height: 65px; 
     width: auto;
     display: block;
 }
-
-/* Animacija koja koristi 100% širine roditelja */
 @keyframes vozi {
     0% { transform: translateX(0); }
     100% { transform: translateX(calc(1100px + 150px)); } 
 }
-
-/* Za mobilne telefone smanji putanju */
 @media (max-width: 858px) {
     @keyframes vozi {
         0% { transform: translateX(0); }
